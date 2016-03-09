@@ -7,12 +7,14 @@ This repsotory contains basic infrastructure tools e.g. docker-files for heloise
 
 ## Build
 
-
+```
+docker-compose -f docker-compose-heloise.yml build
+```
 
 ## Run
 
 ```
-docker-compose -f docker-compose-heloise.yml build
+docker-compose -f docker-compose-heloise.yml run
 ```
 
 
