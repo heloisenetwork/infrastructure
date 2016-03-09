@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!example.n3
+!example.json
+
+# ...even if they are in subdirectories
+!*/
