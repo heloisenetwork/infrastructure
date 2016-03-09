@@ -1,20 +1,27 @@
 store:
-  image: aksw/dld-store-virtuoso7
+  build: ./docker/virtuoso/
   expose:
-    - "8890"
-    - "1111"
+    - 8890
+    - 1111
   environment:
     PWDDBA: "MuZ4eed1quu8waes"
   volumes:
     - ./data/virtuoso/:/var/lib/virtuoso/db/
 
-ontowiki:
-  build: ./ontowiki-docker/
+presentation:
+  build: ./docker/ontowiki/
   links:
     - store
   ports:
-    - '8080:80'
+    - 8080:80
   volumes:
     - ./config/ontowiki/:/config/
 
+vocto:
+  build: ./docker/vocto/
+  ports:
+    - 8081:80
+  volumes:
+    - ./config/vocto/:/config/
+    - ./data/vocto/:/var/www/data/
 
