@@ -1,9 +1,10 @@
-# Docker infrastructure for Heloise Workshop Plattform
-This repsotory contains basic infrastructure tools e.g. docker-files for heloisenetwork.
+# Docker infrastructure for Heloise Workshop Platform
+This repository contains basic infrastructure tools e.g. docker-files for heloise network.
 
-* VocTo - RDF-Vokabulareditor
+* VocTo - RDF-Vocabulary Editor
 * OntoWiki - RDF-Editor -> Port: 8080
 * Virtuoso - Triple Store -> Port: 8081
+* Etherpad - Collaborative Texteditor -> Port: 8082
 
 ## Build
 
