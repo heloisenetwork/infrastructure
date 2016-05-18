@@ -30,3 +30,14 @@ etherpad:
   ports:
     - 8082:9001
 
+elasticsearch:
+  build: ./docker/elasticsearch/
+  ports: 
+    - "9200:9200"
+  expose:
+    - 9200
+
+project-crawler:
+  build: ./docker/project-crawler/.
+  links:
+    - elasticsearch
