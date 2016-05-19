@@ -8,14 +8,14 @@ store:
   volumes:
     - ./data/virtuoso/:/var/lib/virtuoso/db/
 
-#presentation:
-#  build: ./docker/ontowiki/
-#  links:
-#    - store
-#  ports:
-#    - 8080:80
-#  volumes:
-#    - ./config/ontowiki/:/config/
+presentation:
+  build: ./docker/ontowiki/
+  links:
+    - store
+  ports:
+    - 8080:80
+  volumes:
+    - ./config/ontowiki/:/config/
 
 vocto:
   build: ./docker/vocto/
