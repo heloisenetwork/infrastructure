@@ -20,6 +20,7 @@ RUN git clone https://github.com/heloisenetwork/project-crawler.git /opt/project
 WORKDIR /opt/project-crawler
 
 RUN git checkout -b develop origin/develop
+RUN git pull origin develop
 RUN npm install -g grunt-cli
 RUN rm -rf node_modules/
 RUN npm install
@@ -30,5 +31,4 @@ RUN npm install
 #VOLUME /config
 #VOLUME /var/www/data
 
-CMD grunt ts:app run:cpl_index
-CMD bash
+CMD grunt ts:app run:cpl_index run:cpl_details
