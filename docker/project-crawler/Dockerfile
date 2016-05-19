@@ -31,4 +31,4 @@ RUN npm install
 #VOLUME /config
 #VOLUME /var/www/data
 
-CMD grunt ts:app run:cpl_index
+CMD grunt ts:app run:cpl_index run:cpl_details
