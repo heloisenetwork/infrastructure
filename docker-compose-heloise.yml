@@ -25,11 +25,6 @@ vocto:
     - ./config/vocto/:/config/
     - ./data/vocto/:/var/www/data/
 
-etherpad:
-  build: ./docker/etherpad/
-  ports:
-    - 8082:9001
-
 elasticsearch:
   build: ./docker/elasticsearch/
   ports: 
