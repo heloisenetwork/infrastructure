@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # install dependencies
-RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc wget make git nginx-light \
+RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc wget make git nginx-light curl \
     php5 php5-fpm php5-common php5-cli \
     php5-odbc php5-curl
 
