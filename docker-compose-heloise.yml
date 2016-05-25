@@ -25,23 +25,23 @@ vocto:
     - ./config/vocto/:/config/
     - ./data/vocto/:/var/www/data/
 
-elasticsearch:
-  build: ./docker/elasticsearch/
-  ports: 
-    - "9200:9200"
-  expose:
-    - 9200
+#elasticsearch:
+#  build: ./docker/elasticsearch/
+#  ports: 
+#    - "9200:9200"
+#  expose:
+#    - 9200
 
-project-crawler:
-  build: ./docker/project-crawler/.
-  links:
-    - elasticsearch
+#project-crawler:
+#  build: ./docker/project-crawler/.
+#  links:
+#    - elasticsearch
 
-project-display:
-  build: ./docker/project-display/.
-  ports: 
-    - "80:80"
-  expose:
-    - "80"
-  links:
-    - elasticsearch
+#project-display:
+#  build: ./docker/project-display/.
+#  ports: 
+#    - "80:80"
+#  expose:
+#    - "80"
+#  links:
+#    - elasticsearch
