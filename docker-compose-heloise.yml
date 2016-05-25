@@ -1,5 +1,6 @@
 store:
   build: ./docker/virtuoso/
+  restart: always
   expose:
     - 8890
     - 1111
@@ -10,20 +11,49 @@ store:
 
 presentation:
   build: ./docker/ontowiki/
+  restart: always
   links:
     - store
-  ports:
+  expose:
     - 8080:80
   volumes:
     - ./config/ontowiki/:/config/
 
 vocto:
   build: ./docker/vocto/
+  restart: always
   ports:
     - 8081:80
   volumes:
     - ./config/vocto/:/config/
     - ./data/vocto/:/var/www/data/
+
+proxy:
+  image: nginx:1.9
+  restart: always
+  ports:
+    - 80:80
+    - 443:443
+  restart: always
+  mem_limit: 500MB
+  volumes:
+    - ./data/proxy/nginx.conf:/etc/nginx/nginx.conf:rw
+    - ./data/proxy/ssl/:/etc/nginx/ssl/:rw
+    - ./data/proxy/conf.d/:/etc/nginx/conf.d/:rw
+    - ./data/proxy/log/:/var/log/nginx/:rw
+  links:
+    - vocto
+    - presentation
+    - website
+    
+website:
+  build: ./docker/website/
+  restart: always
+  ports:
+    - 8083:80
+  volumes:
+    - ./config/website/:/config/
+    - ./data/website/:/var/www/
 
 #elasticsearch:
 #  build: ./docker/elasticsearch/
