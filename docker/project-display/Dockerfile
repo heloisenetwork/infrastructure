@@ -18,8 +18,6 @@ WORKDIR /var/www/
 RUN git checkout -b restify origin/restify
 RUN git pull origin restify
 
-RUN ls  -al 
-
 # expose the HTTP port to the outer world
 #EXPOSE 80
 
