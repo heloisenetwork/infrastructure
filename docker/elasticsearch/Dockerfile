@@ -31,6 +31,8 @@ ENV PATH /usr/share/elasticsearch/bin:$PATH
 
 WORKDIR /usr/share/elasticsearch
 
+RUN bin/plugin install mobz/elasticsearch-head
+
 RUN set -ex \
 	&& for path in \
 		./data \
