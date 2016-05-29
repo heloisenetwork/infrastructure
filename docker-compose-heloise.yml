@@ -39,6 +39,8 @@ elasticsearch:
 
 project-crawler:
   build: ./docker/project-crawler/.
+  ports:
+    - "8666:8666"
   links:
     - elasticsearch
 
@@ -46,7 +48,6 @@ project-display:
   build: ./docker/project-display/.
   ports: 
     - "80:80"
-  expose:
-    - "80"
   links:
     - elasticsearch
+    - project-crawler

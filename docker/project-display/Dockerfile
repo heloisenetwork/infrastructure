@@ -14,10 +14,14 @@ RUN git clone https://github.com/heloisenetwork/project-display.git /var/www
 
 WORKDIR /var/www/
 
+#Checkout Repo
+RUN git checkout -b restify origin/restify
+RUN git pull origin restify
+
 RUN ls  -al 
 
 # expose the HTTP port to the outer world
-EXPOSE 80
+#EXPOSE 80
 
 CMD service apache2 start && touch test.txt && tail -f test.txt
 
