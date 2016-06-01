@@ -13,7 +13,8 @@ RUN rm -rf var/www/html/
 RUN git clone https://github.com/heloisenetwork/project-display.git /var/www
 
 WORKDIR /var/www/
-
+RUN git fetch origin
+RUN git checkout -b develop origin/develop
 RUN ls  -al 
 
 # expose the HTTP port to the outer world
