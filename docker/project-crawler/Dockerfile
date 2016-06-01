@@ -31,4 +31,4 @@ RUN npm install -g grunt-cli
 #VOLUME /config
 #VOLUME /var/www/data
 
-CMD grunt ts:app run:cpl_index run:cpl_details
+CMD grunt ts:app run:server
