@@ -15,7 +15,7 @@ RUN git clone https://github.com/heloisenetwork/project-display.git /var/www
 
 WORKDIR /var/www/
 RUN git fetch origin
-RUN git checkout -b master origin/master
+RUN git pull origin master
 RUN ls  -al 
 
 CMD service apache2 start && touch test.txt && tail -f test.txt

@@ -21,7 +21,6 @@ WORKDIR /opt/project-crawler
 
 # Checkout branch 
 RUN git fetch origin
-RUN git checkout -b master origin/master
 RUN git pull origin master
 
 RUN npm install -g grunt-cli
