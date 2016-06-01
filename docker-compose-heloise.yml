@@ -1,7 +1,6 @@
 store:
   build: ./docker/virtuoso/
-  expose:
-    - 8890
+  expose: - 8890
     - 1111
   environment:
     PWDDBA: "MuZ4eed1quu8waes"
@@ -39,13 +38,15 @@ elasticsearch:
 
 project-crawler:
   build: ./docker/project-crawler/.
+  ports:
+    - "8666:8666"
   links:
     - elasticsearch
 
 project-display:
   build: ./docker/project-display/.
   ports: 
-    - "80:80"
+    - "8087:80"
   expose:
     - "80"
   links:
