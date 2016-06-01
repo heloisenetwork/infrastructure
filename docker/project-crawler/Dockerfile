@@ -22,8 +22,8 @@ WORKDIR /opt/project-crawler
 RUN git checkout -b develop origin/develop
 RUN git pull origin develop
 RUN npm install -g grunt-cli
-RUN rm -rf node_modules/
-RUN npm install
+#RUN rm -rf node_modules/
+#RUN npm install
 
 # expose the HTTP port to the outer world
 # EXPOSE 80
