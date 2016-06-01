@@ -1,6 +1,7 @@
 store:
   build: ./docker/virtuoso/
-  expose: - 8890
+  expose: 
+    - 8890
     - 1111
   environment:
     PWDDBA: "MuZ4eed1quu8waes"
@@ -51,3 +52,6 @@ project-display:
     - "80"
   links:
     - elasticsearch
+    - project-crawler
+  volumes:
+    - ./config/project-display/:/var/www/config/
