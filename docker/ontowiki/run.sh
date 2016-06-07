@@ -8,7 +8,7 @@ chmod +x /config/config-run.sh
 /config/config-run.sh
 
 # set Virtuoso password in ontowikis config.ini
-sed -i "s/\(store.virtuoso.password\s*\)= \"dba\"$/\1= \"${STORE_ENV_PWDDBA}\"/" ${CONFIG_ONTOWIKI}
+sed -i "s/\(store.virtuoso.password\s*\)= \"dba\"$/\1= \"${VIRTUOSO_ENV_PWDDBA}\"/" ${CONFIG_ONTOWIKI}
 
 # start the php5-fpm service
 echo "starting php …"
