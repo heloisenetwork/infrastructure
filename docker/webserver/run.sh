@@ -19,7 +19,9 @@ if [ "$(ls -A $DIR)" ]; then
 else
     echo "$DIR is Empty: Clone Webserver Repository"
     # clone and update heloise-webserver
-    git clone https://github.com/heloisenetwork/webserver.git $DIR
+    git clone https://github.com/heloisenetwork/webserver.git $DIR/webserver
+    cd $DIR && git pull
+    git clone https://github.com/heloisenetwork/search-interface.git $DIR/search-interface
     cd $DIR && git pull
 fi
 
