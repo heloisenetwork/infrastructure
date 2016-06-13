@@ -13,17 +13,29 @@ chown www-data /var/www
 
 DIR="/var/www"
 # init
-# look for empty dir 
-if [ "$(ls -A $DIR)" ]; then
-     echo "$DIR is not Empty"
+
+PROJECT="webserver"
+# Look for empty dir 
+if [ "$(ls -A $DIR/$PROJECT)" ]; then
+     echo "$DIR/$PROJECT is not Empty"
 else
-    echo "$DIR is Empty: Clone Webserver Repository"
-    # clone and update heloise-webserver
-    git clone https://github.com/heloisenetwork/webserver.git $DIR/webserver
-    cd $DIR && git pull
-    git clone https://github.com/heloisenetwork/search-interface.git $DIR/search-interface
-    cd $DIR && git pull
+    echo "$DIR/$PROJECT is Empty: Clone Webserver Repository"
+    # clone and update $PROJECT
+    git clone https://github.com/heloisenetwork/$PROJECT.git $DIR/$PROJECT
+    cd $DIR/$PROJECT && git pull
 fi
+
+PROJECT="search-interface"
+# Look for empty dir 
+if [ "$(ls -A $DIR/$PROJECT)" ]; then
+     echo "$DIR/$PROJECT is not Empty"
+else
+    echo "$DIR/$PROJECT is Empty: Clone Webserver Repository"
+    # clone and update $PROJECT
+    git clone https://github.com/heloisenetwork/$PROJECT.git $DIR/$PROJECT
+    cd $DIR/$PROJECT && git pull
+fi
+
 
 # start the php5-fpm service
 echo "starting php …"
