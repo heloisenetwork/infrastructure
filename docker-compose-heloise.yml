@@ -1,6 +1,6 @@
 store:
   build: ./docker/virtuoso/
-  expose:
+  expose: 
     - 8890
     - 1111
   environment:
@@ -34,14 +34,22 @@ elasticsearch:
 
 project-crawler:
   build: ./docker/project-crawler/.
+  ports:
+    - "8666:8666"
   links:
     - elasticsearch
+  volumes:
+    # Mounting configfile of Project-Crawler
+    - ./config/project-crawler/:/opt/project-crawler/src/app/config/
 
 project-display:
   build: ./docker/project-display/.
   ports: 
-    - "80:80"
+    - "8087:80"
   expose:
     - "80"
   links:
     - elasticsearch
+    - project-crawler
+  volumes:
+    - ./config/project-display/:/var/www/config/

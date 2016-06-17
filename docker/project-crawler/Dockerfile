@@ -13,22 +13,18 @@ RUN sudo ln -s /usr/bin/nodejs usr/bin/node
 RUN rm -rf /var/www/*
 
 
-# clone and update project-crawler
+# clone project-crawler
 RUN mkdir /opt/project-crawler 
 RUN git clone https://github.com/heloisenetwork/project-crawler.git /opt/project-crawler
 
 WORKDIR /opt/project-crawler
 
-RUN git checkout -b develop origin/develop
-RUN git pull origin develop
+# Checkout branch 
+RUN git fetch origin
+RUN git pull origin master
+
 RUN npm install -g grunt-cli
 RUN rm -rf node_modules/
 RUN npm install
 
-# expose the HTTP port to the outer world
-# EXPOSE 80
-
-#VOLUME /config
-#VOLUME /var/www/data
-
-CMD grunt ts:app run:cpl_index run:cpl_details
+CMD grunt ts:app run:server
