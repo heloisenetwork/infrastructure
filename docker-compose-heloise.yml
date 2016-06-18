@@ -37,6 +37,24 @@ webserver:
     - ./config/webserver/:/config/
     - ./data/webserver/www/:/var/www/
 
+elasticsearch:
+  build: ./docker/elasticsearch/
+  ports: 
+    - "9200:9200"
+  expose:
+    - 9200
+
+project-crawler:
+  build: ./docker/project-crawler/.
+  ports: 
+    - "8666:8666"
+  links:
+    - elasticsearch
+  volumes:
+    # Mounting configfile of Project-Crawler
+    - ./config/project-crawler/:/opt/project-crawler/src/app/config/
+    
+    
 proxy:
   image: nginx:1.9
   restart: always
