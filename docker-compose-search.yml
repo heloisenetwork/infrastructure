@@ -10,8 +10,11 @@ project-crawler:
   volumes:
     # Mounting configfile of Project-Crawler
     - ./config/project-crawler/:/opt/project-crawler/src/app/config/
+  ports: 
+    - "8666:8666"
   links:
     - elasticsearch
+
 
 project-display:
   build: ./docker/project-display/.
@@ -23,4 +26,6 @@ project-display:
     - elasticsearch
     - project-crawler
   volumes:
+    # Mounting configfile of Project-Crawler
     - ./config/project-display/:/var/www/config/
+
