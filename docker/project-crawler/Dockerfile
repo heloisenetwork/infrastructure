@@ -21,7 +21,7 @@ WORKDIR /opt/project-crawler
 
 # Checkout branch 
 RUN git fetch origin
-RUN git checkout -b develop origin/develop
+RUN git pull origin master
 
 RUN npm install -g grunt-cli
 RUN rm -rf node_modules/
