@@ -12,6 +12,7 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 RUN rm -rf var/www/html/
 
 RUN git clone https://github.com/heloisenetwork/project-display.git /var/www
+RUN git clone https://github.com/heloisenetwork/search-file-uploader.git /var/www/uploader
 
 WORKDIR /var/www/
 RUN git fetch origin
