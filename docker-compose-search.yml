@@ -29,6 +29,7 @@ project-display:
   volumes:
     # Mounting configfile of Project-Crawler
     - ./config/project-display/:/var/www/config/
+    - ./config/project-file-uploader/:/var/www/uploader/js/config/
 
 
 
