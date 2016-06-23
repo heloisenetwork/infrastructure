@@ -1,0 +1,3 @@
+var UPLOAD_CONFIG = {
+	HELOISE_PARISIENS_UPLOAD_URL : 'http://localhost:8667/upload';
+	}
