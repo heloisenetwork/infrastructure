@@ -9,6 +9,7 @@ project-crawler:
   build: ./docker/project-crawler/.
   ports: 
     - "8666:8666"
+    - "8667:8667"
   links:
     - elasticsearch
   volumes:
