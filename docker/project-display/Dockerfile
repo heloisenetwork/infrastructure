@@ -19,5 +19,5 @@ RUN git fetch origin
 RUN git pull origin master
 RUN ls  -al 
 
-CMD service apache2 start && touch test.txt && tail -f test.txt
+CMD service apache2 start && tail -f /var/log/apache2/access.log
 
