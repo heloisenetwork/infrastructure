@@ -12,6 +12,7 @@ project-crawler:
     - ./config/project-crawler/:/opt/project-crawler/src/app/config/
   ports: 
     - "8666:8666"
+    - "8667:8667"
   links:
     - elasticsearch
 
@@ -28,4 +29,5 @@ project-display:
   volumes:
     # Mounting configfile of Project-Crawler
     - ./config/project-display/:/var/www/config/
+    - ./config/project-file-uploader/:/var/www/uploader/js/config/
 
